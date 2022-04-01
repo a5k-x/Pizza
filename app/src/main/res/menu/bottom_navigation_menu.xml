@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_menu"
+        android:enabled="true"
+        android:icon="@drawable/icon_menu"
+        android:title="@string/text_label_menu"/>
+    <item
+        android:id="@+id/page_union"
+        android:enabled="true"
+        android:icon="@drawable/icon_union"
+        android:title="@string/text_label_union"/>
+    <item
+        android:id="@+id/page_trash"
+        android:enabled="true"
+        android:icon="@drawable/icon_trash"
+        android:title="@string/text_label_trash"/>
+</menu>
