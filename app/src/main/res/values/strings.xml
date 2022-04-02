@@ -5,4 +5,9 @@
     <string name="text_label_menu">Меню</string>
     <string name="text_label_union">Профиль</string>
     <string name="text_label_trash">Корзина</string>
+    <string name="text_chip_1">Пицца</string>
+    <string name="city_label_hardcode_text">Москва</string>
+    <string name="chip1_text">Комбо</string>
+    <string name="chip2_text">Десерты</string>
+    <string name="chip3_text">Напитки</string>
 </resources>

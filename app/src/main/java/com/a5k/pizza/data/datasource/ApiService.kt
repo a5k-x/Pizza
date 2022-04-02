@@ -7,9 +7,9 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET ("list?page=2&limit=2")
-    fun getListBanner():Call<List<Banners>>
+    @GET("list?page=20&limit=5")
+    fun getListBanner(): Call<List<Banners>>
 
-    @GET ("list?page=2&limit=20")
-    fun getListMenu():Call<List<Menu>>
+    @GET("list?page=8&limit=10")
+    fun getListMenu(): Call<List<Menu>>
 }

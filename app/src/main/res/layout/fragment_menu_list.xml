@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:fitsSystemWindows="true">
 
@@ -11,72 +10,80 @@
         android:id="@+id/main_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="@dimen/AppBarLayout_elevation"
         android:fitsSystemWindows="true">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
             android:id="@+id/recyler_banner_container"
-            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/RecyclerView_banner_margin_bottom"
             android:fitsSystemWindows="true"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_marginBottom="16dp"
-            android:layout_height="150dp"/>
+            app:layout_scrollFlags="scroll" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:fitsSystemWindows="true"
+                android:orientation="horizontal"
                 app:layout_scrollFlags="noScroll">
 
-                <ToggleButton
-                    android:id="@+id/toggleButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
-                <ToggleButton
-                    android:id="@+id/toggleButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
-                <ToggleButton
-                    android:id="@+id/toggleButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
-                <ToggleButton
-                    android:id="@+id/toggleButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
-                <ToggleButton
-                    android:id="@+id/toggleButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
-                <ToggleButton
-                    android:id="@+id/toggleButton6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ToggleButton" />
+                <com.google.android.material.chip.ChipGroup
+                    style="@style/ChipGroupStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip1"
+                        style="@style/ChipStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/chip_marginStartEnd"
+                        android:text="@string/text_chip_1"
+                        app:checkedIconEnabled="false" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip2"
+                        style="@style/ChipStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip1_text"
+                        app:checkedIconEnabled="false" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip3"
+                        style="@style/ChipStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip2_text"
+                        app:checkedIconEnabled="false" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip4"
+                        style="@style/ChipStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/chip_marginStartEnd"
+                        android:text="@string/chip3_text"
+                        app:checkedIconEnabled="false" />
+
+                </com.google.android.material.chip.ChipGroup>
 
 
-            </androidx.appcompat.widget.LinearLayoutCompat> </HorizontalScrollView>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </HorizontalScrollView>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyler_item_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyler_item_container"/>
-    </androidx.core.widget.NestedScrollView>
-
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

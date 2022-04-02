@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero_height">0dp</dimen>
+    <dimen name="qr_code_size">24dp</dimen>
+    <dimen name="qr_code_margin">16dp</dimen>
+    <dimen name="AppBarLayout_elevation">6dp</dimen>
+    <dimen name="RecyclerView_banner_margin_bottom">24dp</dimen>
+    <dimen name="chipGroup_margin_bottom">16dp</dimen>
+    <dimen name="chip_marginStartEnd">16dp</dimen>
+    <dimen name="banner_width">300dp</dimen>
+    <dimen name="banner_weight">112dp</dimen>
+    <dimen name="image_item_menu_size">135dp</dimen>
+    <dimen name="menu_margin">16dp</dimen>
+    <dimen name="menu_text_title_marginStart">22dp</dimen>
+    <dimen name="menu_text_title_sizeText">16sp</dimen>
+    <dimen name="menu_text_description_marginStart">22dp</dimen>
+    <dimen name="menu_text_description_marginTop">8dp</dimen>
+    <dimen name="menu_text_description_sizeText">14sp</dimen>
+    <dimen name="view_line_height">1dp</dimen>
+    <dimen name="view_line_marginTop">16dp</dimen>
+</resources>

@@ -6,22 +6,28 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitImp:IDataSource {
+class RetrofitImp : IDataSource {
 
     override fun getListBanners(): Call<List<Banners>> {
-       return getService().getListBanner()
+        return getService().getListBanner()
     }
 
     override fun getListMenu(): Call<List<Menu>> {
-       return getService().getListMenu()
+        return getService().getListMenu()
     }
 
-    private fun getService():ApiService{
+    private fun getService(): ApiService {
         return getRetrofit().create(ApiService::class.java)
     }
-    private fun getRetrofit():Retrofit{
+
+    private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    companion object {
+        private val BASE_URL = "https://picsum.photos/v2/"
     }
 }

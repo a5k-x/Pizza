@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/menu_margin"
+    android:layout_marginTop="@dimen/menu_margin"
+    android:layout_marginEnd="@dimen/menu_margin">
+
+    <ImageView
+        android:id="@+id/image_item_menu"
+        android:layout_width="@dimen/image_item_menu_size"
+        android:layout_height="@dimen/image_item_menu_size"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/menu_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/menu_text_title_marginStart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/menu_text_title_sizeText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/image_item_menu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menu_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/menu_text_description_marginStart"
+        android:layout_marginTop="@dimen/menu_text_description_marginTop"
+        android:textSize="@dimen/menu_text_description_sizeText"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/orderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/image_item_menu"
+        app:layout_constraintTop_toBottomOf="@id/menu_text_title"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/orderButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorCheked"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/image_item_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="@color/textColorCheked" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_line_height"
+        android:layout_marginTop="@dimen/view_line_marginTop"
+        android:background="@color/noActive"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_item_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
