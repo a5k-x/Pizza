@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitImp : IDataSource {
+class RetrofitImp : RetrofitDataSource {
 
     override fun getListBanners(): Call<List<Banners>> {
         return getService().getListBanner()

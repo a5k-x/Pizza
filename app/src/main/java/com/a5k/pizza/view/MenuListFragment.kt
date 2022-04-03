@@ -1,6 +1,8 @@
 package com.a5k.pizza.view
 
+import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +18,7 @@ import com.a5k.pizza.view.adapter.MenuAdapter
 import com.a5k.pizza.viewModel.MainViewModel
 
 class MenuListFragment : Fragment() {
-
+    private lateinit var connectivityManager: ConnectivityManager
     private var vb: FragmentMenuListBinding? = null
     private var mainAdapter: MainAdapter? = null
     private var menuAdapter: MenuAdapter? = null
@@ -35,16 +37,31 @@ class MenuListFragment : Fragment() {
         initViewModel()
         initBannerAdapter()
         initMenuAdapter()
+        connectivityManager = requireActivity().getSystemService(ConnectivityManager::class.java)
+
+        initLiveData()
     }
 
     private fun initViewModel() {
         mainAdapter = MainAdapter()
         menuAdapter = MenuAdapter()
-
-        viewModel.getLiveData().observe(viewLifecycleOwner) { data -> render(data) }
         viewModel.getLiveDataMenu().observe(viewLifecycleOwner) { data -> render(data) }
-        viewModel.getListBanner()
-        viewModel.getListMenu()
+        viewModel.getLiveDataBanner().observe(viewLifecycleOwner) { data -> render(data) }
+
+
+    }
+
+    private fun initLiveData() {
+        val currentNetwork = connectivityManager.activeNetwork
+        if (currentNetwork != null) {
+            viewModel.getListMenu(true)
+            viewModel.getListBanner(true)
+
+        } else {
+            viewModel.getListBanner(false)
+            viewModel.getListMenu(false)
+            Log.i("AAA", "not connection, данные из БД")
+        }
     }
 
     private fun render(data: AppState) {
@@ -59,7 +76,7 @@ class MenuListFragment : Fragment() {
             }
             is AppState.Loading -> {}
             is AppState.Error -> {
-                Toast.makeText(requireContext(),ERROR,Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), ERROR, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -71,15 +88,17 @@ class MenuListFragment : Fragment() {
 
         }
     }
-    private fun initMenuAdapter(){
+
+    private fun initMenuAdapter() {
         vb?.recylerItemContainer?.run {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = menuAdapter
         }
     }
-companion object{
-    private const val ERROR = "Ошибка загрузки данных"
-}
+
+    companion object {
+        private const val ERROR = "Ошибка загрузки данных"
+    }
 
 }
 

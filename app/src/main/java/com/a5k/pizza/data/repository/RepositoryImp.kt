@@ -1,16 +1,15 @@
 package com.a5k.pizza.data.repository
 
-import com.a5k.pizza.data.Banners
-import com.a5k.pizza.data.Menu
-import com.a5k.pizza.data.datasource.IDataSource
-import retrofit2.Call
+import com.a5k.pizza.data.datasource.DataSource
 
-class RepositoryImp(private val dataSource:IDataSource):Repository {
-    override fun getListBanners(): Call<List<Banners>> {
-        return dataSource.getListBanners()
+class RepositoryImp(private val dataSource: DataSource):Repository {
+
+    override fun getListBanners() {
+       dataSource.getListBanners()
     }
 
-    override fun getListMenu(): Call<List<Menu>> {
-       return dataSource.getListMenu()
+    override fun getListMenu() {
+       dataSource.getListMenu()
     }
+
 }

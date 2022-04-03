@@ -1,16 +1,18 @@
 package com.a5k.pizza.data
 
-data class Banners(
-    val id:String,
-    val author:String,
-    val download_url:String,
-    val flag:Boolean = false
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "banners_table")
+data class Banners(
+    @field:PrimaryKey(autoGenerate = false) val id:Int,
+    @field:ColumnInfo(name = "author") val author:String,
+    @field:ColumnInfo(name = "download_url") val download_url:String,
 )
-//for single adapter (two types)
+@Entity(tableName = "menu_table")
 data class Menu(
-    val id:String,
-    val author:String,
-    val download_url:String,
-    val flag:Boolean = true
+    @field:PrimaryKey(autoGenerate = false)  val id:Int,
+    @field:ColumnInfo(name = "author") val author:String,
+    @field:ColumnInfo(name = "download_url") val download_url:String,
 )
